@@ -1,3 +1,4 @@
+Codigo 6
 %clc; clear; close all;
 
 % Definir la variable de Laplace
