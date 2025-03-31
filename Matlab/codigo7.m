@@ -1,3 +1,4 @@
+Codigo 7
 clc; clear; close all;
 
 % Definir las funciones de transferencia como variables simbólicas
