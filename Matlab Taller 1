@@ -1,1 +1,42 @@
+Codigo 1 taller 1:
+clc; 
+clear; 
+close all;
 
+syms t s w a  % Definir variables simbólicas
+
+% 1. Comprobar las siguientes transformadas de Laplace
+disp('Transformadas de Laplace comprobadas:');
+
+% (a) Escalón unitario U(s) = 1/s
+U_step = laplace(1, t, s);
+fprintf('Escalón unitario: ');
+disp(U_step);
+
+% (b) Rampa U(s) = 1/s^2
+U_ramp = laplace(t, t, s);
+fprintf('Rampa: ');
+disp(U_ramp);
+
+% (c) Impulso unitario U(s) = 1
+U_impulse = laplace(dirac(t), t, s);
+fprintf('Impulso unitario: ');
+disp(U_impulse);
+
+% 2. Hallar las siguientes transformadas de Laplace
+disp('Cálculo de nuevas transformadas de Laplace:');
+
+% (a) sen(wt)
+Laplace_sin = laplace(sin(w*t), t, s);
+fprintf('Transformada de Laplace de sen(wt): ');
+disp(Laplace_sin);
+
+% (b) cos(wt)
+Laplace_cos = laplace(cos(w*t), t, s);
+fprintf('Transformada de Laplace de cos(wt): ');
+disp(Laplace_cos);
+
+% (c) e^(-at) * sin(wt)
+Laplace_exp_sin = laplace(exp(-a*t) * sin(w*t), t, s);
+fprintf('Transformada de Laplace de e^(-at) * sin(wt): ');
+disp(Laplace_exp_sin);
