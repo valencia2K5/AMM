@@ -1,0 +1,24 @@
+% Parámetros del sistema (horno)
+K = 1;        % Ganancia
+tau = 10;     % Constante de tiempo
+
+% Función de transferencia del horno
+s = tf('s');
+G = K / (tau*s + 1);
+
+% Controlador PID inicial
+Kp = 2;
+Ki = 0.5;
+Kd = 1;
+
+PID = pid(Kp, Ki, Kd);
+
+% Sistema en lazo cerrado
+T = feedback(PID * G, 1);
+
+% Simulación de la respuesta al escalón
+step(T)
+grid on
+title('Respuesta al escalón del sistema con PID')
+xlabel('Tiempo (s)')
+ylabel('Temperatura simulada')
